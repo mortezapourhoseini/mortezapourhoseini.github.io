@@ -7,42 +7,46 @@
 <meta name="color-scheme" content="light dark">
 <title>Morteza PourHosseini</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
   :root{
-    --bg:#F4F2EE;
-    --surface:#FBFAF8;
-    --surface-2:#ECE9E3;
-    --text:#17181A;
-    --muted:#5E5F63;
-    --cyan:#A9521B;
-    --amber:#6E6F73;
-    --border:#DAD6CE;
+    color-scheme:light;
+    --bg:#F3F6FA;
+    --surface:#FFFFFF;
+    --surface-2:#E8EDF4;
+    --text:#101A28;
+    --muted:#566377;
+    --cyan:#1F4F99;
+    --amber:#5B6F8A;
+    --on-accent:#FFFFFF;
+    --border:#D5DCE6;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#121418;
-      --surface:#181B21;
-      --surface-2:#1E2229;
-      --text:#ECE9E2;
-      --muted:#9A9DA3;
-      --cyan:#E8A24A;
-      --amber:#8E9199;
-      --border:#2A2E36;
+      --bg:#0B1B2E;
+      --surface:#112742;
+      --surface-2:#16314F;
+      --text:#E4ECF5;
+      --muted:#8FA5BE;
+      --cyan:#F2C94C;
+      --amber:#8FA5BE;
+      --on-accent:#1B1503;
+      --border:#223B5A;
       color-scheme:dark;
     }
   }
   :root[data-theme="dark"]{
-    --bg:#121418;
-      --surface:#181B21;
-      --surface-2:#1E2229;
-      --text:#ECE9E2;
-      --muted:#9A9DA3;
-      --cyan:#E8A24A;
-      --amber:#8E9199;
-      --border:#2A2E36;
-    color-scheme:dark;
+    --bg:#0B1B2E;
+      --surface:#112742;
+      --surface-2:#16314F;
+      --text:#E4ECF5;
+      --muted:#8FA5BE;
+      --cyan:#F2C94C;
+      --amber:#8FA5BE;
+      --on-accent:#1B1503;
+      --border:#223B5A;
+      color-scheme:dark;
   }
 
   *{ box-sizing:border-box; }
@@ -51,11 +55,11 @@
     margin:0;
     background:var(--bg);
     color:var(--text);
-    font-family:'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    font-family:'Bricolage Grotesque', -apple-system, 'Segoe UI', sans-serif;
     line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
-  .display{ font-family:'Bricolage Grotesque', 'Instrument Sans', sans-serif; }
+  .display{ font-family:'Bricolage Grotesque', sans-serif; }
   .mono{ font-family:'DM Mono', ui-monospace, Menlo, Consolas, monospace; }
 
   a{ color:inherit; }
@@ -97,9 +101,9 @@
     display:inline-flex; align-items:center; gap:8px;
     padding:11px 20px; border-radius:6px; font-size:14.5px; font-weight:600;
     text-decoration:none; border:1px solid var(--border); cursor:pointer;
-    font-family:'Instrument Sans',sans-serif;
+    font-family:'Bricolage Grotesque',sans-serif;
   }
-  .btn.primary{ background:var(--cyan); color:#1A1206; border-color:var(--cyan); }
+  .btn.primary{ background:var(--cyan); color:var(--on-accent); border-color:var(--cyan); }
   .btn.ghost{ background:transparent; color:var(--text); }
   .btn:hover{ opacity:.88; }
   .btn[disabled]{ opacity:.5; cursor:default; }
