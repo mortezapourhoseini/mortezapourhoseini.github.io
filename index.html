@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Morteza PourHosseini — embedded &amp; edge AI developer, computer vision. Available part-time for remote and freelance work.">
+<meta name="color-scheme" content="light dark">
+<title>Morteza PourHosseini</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg:#F4F2EE;
+    --surface:#FBFAF8;
+    --surface-2:#ECE9E3;
+    --text:#17181A;
+    --muted:#5E5F63;
+    --cyan:#A9521B;
+    --amber:#6E6F73;
+    --border:#DAD6CE;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#121418;
+      --surface:#181B21;
+      --surface-2:#1E2229;
+      --text:#ECE9E2;
+      --muted:#9A9DA3;
+      --cyan:#E8A24A;
+      --amber:#8E9199;
+      --border:#2A2E36;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#121418;
+      --surface:#181B21;
+      --surface-2:#1E2229;
+      --text:#ECE9E2;
+      --muted:#9A9DA3;
+      --cyan:#E8A24A;
+      --amber:#8E9199;
+      --border:#2A2E36;
+    color-scheme:dark;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Instrument Sans', -apple-system, 'Segoe UI', sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{ font-family:'Bricolage Grotesque', 'Instrument Sans', sans-serif; }
+  .mono{ font-family:'DM Mono', ui-monospace, Menlo, Consolas, monospace; }
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding-left:max(24px, env(safe-area-inset-left, 0px)); padding-right:max(24px, env(safe-area-inset-right, 0px)); }
+
+  /* ---------- nav ---------- */
+  nav{
+    position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:60px; }
+  .brand{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; text-decoration:none; }
+  .brand span{ color:var(--cyan); }
+  .navlinks{ display:flex; gap:22px; font-size:14px; }
+  .navlinks a{ text-decoration:none; color:var(--muted); }
+  .navlinks a:hover{ color:var(--cyan); }
+  .navlinks{ }
+  @media (max-width:640px){ .navlinks{ display:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; padding:96px 0 80px; overflow:hidden; }
+  .hero-inner{ position:relative; z-index:1; }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'DM Mono',monospace; font-size:13px; color:var(--cyan);
+    border:1px solid var(--border); border-radius:20px; padding:6px 14px; margin-bottom:26px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--cyan); }
+  h1.name{ font-size:clamp(34px,6vw,56px); font-weight:700; margin:0 0 8px; letter-spacing:-0.02em; }
+  .role{ font-size:clamp(18px,2.6vw,22px); color:var(--cyan); font-weight:600; margin:0 0 22px; font-family:'Bricolage Grotesque',sans-serif; }
+  .tagline{ font-size:17px; color:var(--muted); max-width:56ch; margin:0 0 34px; }
+
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:6px; font-size:14.5px; font-weight:600;
+    text-decoration:none; border:1px solid var(--border); cursor:pointer;
+    font-family:'Instrument Sans',sans-serif;
+  }
+  .btn.primary{ background:var(--cyan); color:#1A1206; border-color:var(--cyan); }
+  .btn.ghost{ background:transparent; color:var(--text); }
+  .btn:hover{ opacity:.88; }
+  .btn[disabled]{ opacity:.5; cursor:default; }
+
+  /* ---------- sections ---------- */
+  section{ padding:64px 0; border-top:1px solid var(--border); }
+  .section-label{
+    font-family:'DM Mono',monospace; font-size:12.5px; color:var(--muted);
+    margin-bottom:10px; letter-spacing:.02em;
+  }
+  h2{ font-family:'Bricolage Grotesque',sans-serif; font-size:28px; margin:0 0 24px; }
+  p.lead{ font-size:16.5px; color:var(--muted); max-width:64ch; }
+
+  /* ---------- focus cards ---------- */
+  .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px; }
+  @media (max-width:760px){ .grid3{ grid-template-columns:1fr; } }
+  .card{ background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:22px; }
+  .card h3{ font-size:16.5px; margin:0 0 8px; font-family:'Bricolage Grotesque',sans-serif; }
+  .card p{ font-size:14.5px; color:var(--muted); margin:0; }
+  .card .tag{ font-family:'DM Mono',monospace; font-size:12px; color:var(--amber); margin-bottom:10px; display:block; }
+
+  /* ---------- projects ---------- */
+  .project{
+    background:var(--surface); border:1px solid var(--border); border-radius:8px;
+    padding:24px; margin-bottom:16px;
+    display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  .project .ptext{ flex:1; min-width:240px; }
+  .project h3{ font-family:'Bricolage Grotesque',sans-serif; font-size:18px; margin:0 0 8px; }
+  .project p{ font-size:14.5px; color:var(--muted); margin:0 0 10px; max-width:56ch; }
+  .project .stack{ font-family:'DM Mono',monospace; font-size:12px; color:var(--cyan); }
+  .project .plink{ align-self:center; }
+  .project .plink a{ font-size:13.5px; font-weight:600; text-decoration:none; color:var(--cyan); border:1px solid var(--border); border-radius:6px; padding:8px 14px; white-space:nowrap; }
+  .project .soon{ font-size:12.5px; color:var(--muted); font-family:'DM Mono',monospace; white-space:nowrap; }
+
+  /* ---------- skills ---------- */
+  .tagcloud{ display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+  .tagcloud span{
+    font-family:'DM Mono',monospace; font-size:12.5px;
+    border:1px solid var(--border); border-radius:20px; padding:7px 14px; color:var(--text);
+  }
+
+  /* ---------- timeline ---------- */
+  .tl-item{ display:flex; gap:20px; padding:18px 0; border-top:1px dashed var(--border); }
+  .tl-item:first-child{ border-top:none; }
+  .tl-date{ font-family:'DM Mono',monospace; font-size:12.5px; color:var(--muted); width:110px; flex:none; padding-top:2px; }
+  .tl-body h4{ margin:0 0 4px; font-size:15.5px; font-family:'Bricolage Grotesque',sans-serif; }
+  .tl-body p{ margin:0; font-size:14px; color:var(--muted); }
+
+  /* ---------- contact / footer ---------- */
+  footer{ padding:60px 0 70px; border-top:1px solid var(--border); }
+  .contact-row{ display:flex; flex-wrap:wrap; gap:14px; margin-top:22px; }
+  .contact-row a{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:14.5px; text-decoration:none; color:var(--text);
+    border:1px solid var(--border); border-radius:6px; padding:10px 16px;
+  }
+  .contact-row a:hover{ border-color:var(--cyan); color:var(--cyan); }
+  .fine{ margin-top:40px; font-size:13px; color:var(--muted); font-family:'DM Mono',monospace; }
+
+  @media (max-width:640px){
+    .hero{ padding:64px 0 56px; }
+    section{ padding:48px 0; }
+    .project{ flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">M<span>.</span>PH</a>
+    <div class="navlinks">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#background">Background</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<section class="hero" style="border-top:none;">
+    <div class="wrap hero-inner">
+    <div class="eyebrow"><span class="dot"></span> available part-time · remote &amp; freelance</div>
+    <h1 class="name">Morteza PourHosseini</h1>
+    <p class="role">Embedded &amp; Edge AI Developer · Computer Vision</p>
+    <p class="tagline">I build vision models, then make them fast, small, and reliable enough to run offline on real hardware — Raspberry Pi, microcontrollers, and other resource-constrained devices.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/mortezapourhoseini" target="_blank" rel="noopener">View GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mortezapourhosseini" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn ghost" href="Morteza_PourHosseini_Resume.docx" download>Download Résumé</a>
+      <a class="btn ghost" href="mailto:mortezapourhosseini01@gmail.com">Email Me</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-label">about</div>
+    <h2>What I do</h2>
+    <p class="lead">Computer engineering graduate (GPA 18.32/20) and M.Sc. student in Computer Systems Architecture at Tarbiat Modares University. I work on embedded and edge AI systems and computer vision: real-time detection and segmentation pipelines, and the systems-level work to get them running fast, small, and offline.</p>
+
+    <div class="grid3">
+      <div class="card">
+        <span class="tag">edge</span>
+        <h3>Embedded &amp; Edge Deployment</h3>
+        <p>Running models on Raspberry Pi and microcontrollers under tight memory and compute budgets, where most CV work stops at the cloud.</p>
+      </div>
+      <div class="card">
+        <span class="tag">vision</span>
+        <h3>Computer Vision</h3>
+        <p>Real-time object detection, image segmentation, and classical and deep-learning pipelines with YOLO, OpenCV, and SIFT-based feature matching.</p>
+      </div>
+      <div class="card">
+        <span class="tag">systems</span>
+        <h3>Applied Engineering</h3>
+        <p>Python and C/C++ systems work, back-end programming, and system design (UML) from a year of Industrial IoT and Smart Home projects.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-label">projects</div>
+    <h2>Featured work</h2>
+
+    <div class="project">
+      <div class="ptext">
+        <h3>Sentinel-Pi — Real-Time Person Detection on Raspberry Pi</h3>
+        <p>Lightweight person-detection system built around YOLO inference and low-latency web streaming, optimized for the Raspberry Pi 3B+ — directly tackling the edge-AI trade-off between speed, accuracy, and memory.</p>
+        <span class="stack">YOLO · OpenCV · Raspberry Pi · Python</span>
+      </div>
+      <div class="plink"><a href="https://github.com/mortezapourhoseini/sentinel-pi" target="_blank" rel="noopener">View on GitHub →</a></div>
+    </div>
+
+    <div class="project">
+      <div class="ptext">
+        <h3>Brain Tumor Segmentation</h3>
+        <p>A segmentation pipeline using classical morphological operations to isolate brain tissue from surrounding bone before tumor localization — no deep model required.</p>
+        <span class="stack">Python · OpenCV · Morphological Operations</span>
+      </div>
+      <div class="soon">repo coming soon</div>
+    </div>
+
+    <div class="project">
+      <div class="ptext">
+        <h3>FaceCrop-Pro</h3>
+        <p>Face-cropping and preprocessing pipeline for building clean, ML-ready face datasets.</p>
+        <span class="stack">Python · OpenCV</span>
+      </div>
+      <div class="plink"><a href="https://github.com/mortezapourhoseini/FaceCrop-Pro" target="_blank" rel="noopener">View on GitHub →</a></div>
+    </div>
+
+    <div class="project">
+      <div class="ptext">
+        <h3>SIFT Feature Detection &amp; Matching — Tutorial</h3>
+        <p>A practical, notebook-based walkthrough of classical feature detection and matching with real examples.</p>
+        <span class="stack">Python · OpenCV · SIFT</span>
+      </div>
+      <div class="plink"><a href="https://github.com/mortezapourhoseini/SIFT-Feature-Detection-and-Matching-Tutorial" target="_blank" rel="noopener">View on GitHub →</a></div>
+    </div>
+
+    <p style="margin-top:6px;"><a href="https://github.com/mortezapourhoseini?tab=repositories" target="_blank" rel="noopener" style="color:var(--cyan); font-size:14.5px; text-decoration:none; font-weight:600;">See all repositories on GitHub →</a></p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-label">skills</div>
+    <h2>Tools &amp; technologies</h2>
+    <div class="tagcloud">
+      <span>Embedded Systems</span><span>Edge Inference</span><span>Raspberry Pi</span>
+      <span>C / C++</span><span>Python</span><span>OpenCV</span><span>YOLO</span>
+      <span>PyTorch</span><span>Image Segmentation</span><span>SIFT</span>
+      <span>Git</span><span>UML / System Design</span>
+    </div>
+  </div>
+</section>
+
+<section id="background">
+  <div class="wrap">
+    <div class="section-label">background</div>
+    <h2>Education &amp; experience</h2>
+
+    <div class="tl-item">
+      <div class="tl-date">2026 – now</div>
+      <div class="tl-body">
+        <h4>M.Sc., Computer Systems Architecture</h4>
+        <p>Tarbiat Modares University, Tehran</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 – 2026</div>
+      <div class="tl-body">
+        <h4>Edge Developer — Hoshmand-Fanavaran-Bartar-Iranian</h4>
+        <p>A 3-month summer internship in 2025, then 9 months of project-based work (Sep 2025 – Jun 2026) on two Industrial IoT and Smart Home projects. Back-end programming and system design with Python and UML.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022 – 2026</div>
+      <div class="tl-body">
+        <h4>B.Sc., Computer Engineering</h4>
+        <p>Vali-e-Asr University of Rafsanjan — GPA 18.32 / 20</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025</div>
+      <div class="tl-body">
+        <h4>National Computer Engineering Olympiad</h4>
+        <p>Top performer at the regional stage, 39th place nationally.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Course</div>
+      <div class="tl-body">
+        <h4>Harvard CS50x</h4>
+        <p>Introduction to Computer Science.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-label">contact</div>
+    <h2>Work with me</h2>
+    <p class="lead">Available part-time with flexible hours alongside my M.Sc. Open to remote and freelance work in embedded systems, edge AI, and computer vision.</p>
+    <div class="contact-row">
+      <a href="mailto:mortezapourhosseini01@gmail.com">✉ mortezapourhosseini01@gmail.com</a>
+      <a href="https://github.com/mortezapourhoseini" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/mortezapourhosseini" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <p class="fine">© 2026 Morteza PourHosseini</p>
+  </div>
+</footer>
+</body>
+</html>
